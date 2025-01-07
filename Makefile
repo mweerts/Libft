@@ -11,6 +11,7 @@ SRCS = 	ft_isalpha.c \
 		ft_isalnum.c \
 		ft_isascii.c \
 		ft_isprint.c \
+		ft_isinset.c \
 		ft_strlen.c \
 		ft_memset.c \
 		ft_bzero.c \
@@ -39,8 +40,17 @@ SRCS = 	ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
-		
+		ft_putnbr_fd.c \
+		ft_printf.c \
+		ft_parsing.c \
+		ft_utils.c \
+		ft_print_chr.c \
+		ft_print_str.c \
+		ft_print_int.c \
+		ft_print_uint.c \
+		ft_print_hex.c \
+		ft_print_ptr.c \
+		ft_print_percent.c 
 		
 SRCS_BONUS =	ft_lstnew_bonus.c \
 				ft_lstadd_front_bonus.c \

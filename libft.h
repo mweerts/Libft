@@ -6,7 +6,7 @@
 /*   By: maxweert <maxweert@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:05:30 by maxweert          #+#    #+#             */
-/*   Updated: 2024/10/10 16:38:53 by maxweert         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:15:46 by maxweert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -22,16 +25,36 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef enum e_bool
+{
+	FALSE,
+	TRUE
+}	t_bool;
+
+typedef struct s_flags
+{
+	t_bool	minus;
+	t_bool	plus;
+	t_bool	zero;
+	t_bool	hashtag;
+	t_bool	space;
+	int		width;
+	int		precision;
+}	t_flags;
+
+// LIBFT
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_isinset(int c, const char *set);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *s, int fd);
+int		ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
@@ -65,5 +88,19 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
+
+// FT_PRINTF
+
+int		ft_printf(const char *format, ...);
+int		ft_parse_flag(va_list ap, t_flags *flags, const char *s_flag);
+int		ft_print_str(va_list ap, t_flags flags);
+int		ft_print_chr(va_list ap, t_flags flags);
+int		ft_print_int(va_list ap, t_flags flags);
+int		ft_print_uint(va_list ap, t_flags flags);
+int		ft_print_hex(va_list ap, t_flags flags, char specifier);
+int		ft_print_ptr(va_list ap, t_flags flags);
+int		ft_print_percent(void);
+int		ft_max(int nargs, ...);
+void	ft_swap(char *a, char *b);
 
 #endif
