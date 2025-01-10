@@ -66,9 +66,9 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME) : 	$(OBJS_LIST)
+$(NAME) : 	$(OBJS)
 			@echo "$(COLOUR_GREEN)$(BOLD)[LIBFT] Creating libft.a$(COLOUR_END)"
-			@ar rcs $(NAME) $(OBJS_LIST)
+			@ar rcs $(NAME) $(OBJS)
 
 %.o:%.c
 		@echo "$(COLOUR_GREEN)Compiling $<$(COLOUR_END)"
