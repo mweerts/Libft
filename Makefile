@@ -41,6 +41,15 @@ SRCS = 	ft_isalpha.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_lstnew_bonus.c \
+		ft_lstadd_front_bonus.c \
+		ft_lstsize_bonus.c \
+		ft_lstlast_bonus.c \
+		ft_lstadd_back_bonus.c \
+		ft_lstdelone_bonus.c \
+		ft_lstclear_bonus.c \
+		ft_lstiter_bonus.c \
+		ft_lstmap_bonus.c \
 		ft_printf.c \
 		ft_parsing.c \
 		ft_utils.c \
@@ -50,26 +59,10 @@ SRCS = 	ft_isalpha.c \
 		ft_print_uint.c \
 		ft_print_hex.c \
 		ft_print_ptr.c \
-		ft_print_percent.c 
-		
-SRCS_BONUS =	ft_lstnew_bonus.c \
-				ft_lstadd_front_bonus.c \
-				ft_lstsize_bonus.c \
-				ft_lstlast_bonus.c \
-				ft_lstadd_back_bonus.c \
-				ft_lstdelone_bonus.c \
-				ft_lstclear_bonus.c \
-				ft_lstiter_bonus.c \
-				ft_lstmap_bonus.c
+		ft_print_percent.c \
+		get_next_line.c 	
 
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(SRCS_BONUS:.c=.o)
-
-ifdef WITH_BONUS
-OBJS_LIST = $(OBJS) $(BONUS_OBJS)
-else
-OBJS_LIST = $(OBJS)
-endif
 
 all: $(NAME)
 
@@ -83,7 +76,7 @@ $(NAME) : 	$(OBJS_LIST)
 
 clean: 
 		@echo "$(COLOUR_RED)$(BOLD)[LIBFT] Deleting objects files$(COLOUR_END)"
-		@rm -rf $(OBJS) $(BONUS_OBJS)
+		@rm -rf $(OBJS)
 
 fclean: clean
 		@echo "$(COLOUR_RED)$(BOLD)[LIBFT] Deleting \"libft.a\"$(COLOUR_END)"
@@ -91,7 +84,4 @@ fclean: clean
 
 re: fclean all
 
-bonus:
-	@make WITH_BONUS=1 all --no-print-directory
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

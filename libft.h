@@ -6,7 +6,7 @@
 /*   By: maxweert <maxweert@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:05:30 by maxweert          #+#    #+#             */
-/*   Updated: 2025/01/07 19:15:46 by maxweert         ###   ########.fr       */
+/*   Updated: 2025/01/10 17:40:29 by maxweert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,12 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
+
+// GNL
+# define BUFFER_SIZE 1024
+# define FD_MAX 1024
+
+char	*get_next_line(int fd);
 
 // FT_PRINTF
 
